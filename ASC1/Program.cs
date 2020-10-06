@@ -18,6 +18,8 @@ namespace ASC1
                 return;
             }
 
+            Console.WriteLine("Isus al meu prieten bun");
+
             //int.TryParse(line, out numarPantof);
 
             // mica schimbare in pull request
