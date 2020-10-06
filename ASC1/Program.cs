@@ -18,6 +18,8 @@ namespace ASC1
                 return;
             }
 
+           Console.WriteLine("Multumim ca ati fost azi la noi.");
+
         }
     }
 }
