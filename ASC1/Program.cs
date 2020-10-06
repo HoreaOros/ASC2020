@@ -18,10 +18,6 @@ namespace ASC1
                 return;
             }
 
-            //int.TryParse(line, out numarPantof);
-
-            // mica schimbare in pull request
-
         }
     }
 }
