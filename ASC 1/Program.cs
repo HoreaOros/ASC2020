@@ -10,7 +10,7 @@ namespace ASC_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Helloo world!!");
+            Console.WriteLine("Helloo world of C#!!");
         }
     }
 }
