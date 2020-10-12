@@ -14,67 +14,76 @@ namespace Conversie
             Console.WriteLine("*Conversie din baza 10 intr-o baza tinta*");
             Console.WriteLine("*****************************************");
 
-            
-
-            // creati nume de identificatori expresivi
-            string line;
-
-            
-            // Introducem numarul in baza 10 pe care vrem sa il convertim
-            Console.WriteLine("Introduceti numarul in baza 10 pe care vreti sa-l convertiti: ");
-            line = Console.ReadLine();
-            int numar;
-            numar = int.Parse(line);
-
-            // TODO tratarea exceptiilor la introducerea numerelor
-
-
-            
-            // Introducem baza tinta
-            Console.WriteLine("Introduceti baza tinta (un numar natural intre 2 si 16):");
-            line = Console.ReadLine();
-            int bazaTinta;
-            bazaTinta = int.Parse(line);
-
-
-
-            // TODO trebuie sa ne asiguram ca numarul introdus ca si baza tinta este intre 2 si 16
-
-            int cat, rest;
-
-            string result = "";
-            Stack<int> stiva = new Stack<int>();
-
-
-            
-
-            while (numar > 0)
+            try
             {
-                cat = numar / bazaTinta;
-                rest = numar % bazaTinta;
+                // creati nume de identificatori expresivi
+                int numar, bazaTinta;
 
-                stiva.Push(rest);
+                // Introducem numarul in baza 10 pe care vrem sa il convertim
+                Console.WriteLine("Introduceti numarul in baza 10 pe care vreti sa-l convertiti: ");
+                
+                if (!int.TryParse(Console.ReadLine(), out numar))
+                {
+                    throw new Exception("Nu ati introdus un numar !");
+                }
 
 
-                numar = numar / bazaTinta;
+                // Introducem baza tinta
+                Console.WriteLine("Introduceti baza tinta (un numar natural intre 2 si 16):");
+
+                if (!int.TryParse(Console.ReadLine(), out bazaTinta))
+                {
+                    throw new Exception("Nu ati introdus un numar !");
+                }
+
+
+                if (bazaTinta < 2 || bazaTinta > 16)
+                {
+                    throw new Exception("Baza tinta poate fi cuprinsa intre 2 si 16");
+                }
+
+                int cat, rest;
+
+                string result = "";
+                Stack<int> stiva = new Stack<int>();
+
+                while (numar > 0)
+                {
+                    cat = numar / bazaTinta;
+                    rest = numar % bazaTinta;
+
+                    stiva.Push(rest);
+
+                    numar = numar / bazaTinta;
+                }
+
+
+                string[] hex = { "A", "B", "C", "D", "E", "F" };
+                while (stiva.Count > 0)
+                {
+                    int cifra = stiva.Pop();
+                    if (cifra >= 10)
+                    {
+                        // metoda 1 - folosind ASCII
+                        cifra += 55;
+                        result = result + (char)cifra;
+
+                        // metoda 2 - folosind un Array cu valorile
+                        // result = result + hex[cifra - 10];
+                    }
+                    else
+                    {
+                        result = result + cifra;
+                    }
+                }
+
+                Console.WriteLine(result);
+            } catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
 
-
-
-            // TODO afisarea corecta a cifrelor atunci cand baza tinta e mai mare decat 10
-            while (stiva.Count > 0)
-            {
-                result = result + stiva.Pop();
-            }
-
-            Console.WriteLine(result);
-
-
-
-
-
-
-
+      
 
         }
     }
