@@ -28,7 +28,17 @@ namespace Conversie
 
             // TODO tratarea exceptiilor la introducerea numerelor
 
+            try
+            {
+                numar = int.Parse(line);
 
+                Console.WriteLine("Introduceti numarul in baza 10 pe care vreti sa-l convertiti: ");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+                // Am incercat dar nu reusesc (sunt incepatoare)
             
             // Introducem baza tinta
             Console.WriteLine("Introduceti baza tinta (un numar natural intre 2 si 16):");
@@ -39,6 +49,11 @@ namespace Conversie
 
 
             // TODO trebuie sa ne asiguram ca numarul introdus ca si baza tinta este intre 2 si 16
+
+            if (2 < bazaTinta) ;
+            while (16 < bazaTinta) ;
+
+                //Reusit
 
             int cat, rest;
 
@@ -62,6 +77,10 @@ namespace Conversie
 
 
             // TODO afisarea corecta a cifrelor atunci cand baza tinta e mai mare decat 10
+                //Nu stiu sa il fac
+            
+
+
             while (stiva.Count > 0)
             {
                 result = result + stiva.Pop();
