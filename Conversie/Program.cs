@@ -38,7 +38,6 @@ namespace Conversie
             {
                 Console.WriteLine(e.Message);
             }
-                // Am incercat dar nu reusesc (sunt incepatoare)
             
             // Introducem baza tinta
             Console.WriteLine("Introduceti baza tinta (un numar natural intre 2 si 16):");
@@ -50,10 +49,11 @@ namespace Conversie
 
             // TODO trebuie sa ne asiguram ca numarul introdus ca si baza tinta este intre 2 si 16
 
-            if (2 < bazaTinta) ;
-            while (16 < bazaTinta) ;
-
-                //Reusit
+            if (bazaTinta < 2 || bazaTinta > 16)
+            {
+                Console.WriteLine("Introduceti un numar mai mare decat 2 si mai mic decat 16");
+            }
+            
 
             int cat, rest;
 
